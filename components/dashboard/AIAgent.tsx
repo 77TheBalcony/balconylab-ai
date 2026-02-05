@@ -171,7 +171,7 @@ export default function AIAgent() {
                             className={`btn btn-${action.type} text-xs`}
                             onClick={(e) => {
                               e.stopPropagation()
-                              alert('Acción: ' + action.label)
+                              window.alert('Acción: ' + action.label)
                             }}
                           >
                             {action.label}
