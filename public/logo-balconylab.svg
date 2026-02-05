@@ -1,0 +1,41 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background para visualización (remover en producción) -->
+  <rect width="300" height="100" fill="#0A0E27"/>
+  
+  <!-- Railing Icon (Geometric X pattern) -->
+  <g id="railing" transform="translate(20, 25)">
+    <!-- X patterns -->
+    <g stroke="#2D8B6F" stroke-width="3" fill="none" stroke-linecap="round">
+      <!-- X 1 -->
+      <path d="M 0 0 L 12 15 M 12 0 L 0 15" />
+      <!-- X 2 -->
+      <path d="M 18 0 L 30 15 M 30 0 L 18 15" />
+      <!-- X 3 -->
+      <path d="M 36 0 L 48 15 M 48 0 L 36 15" />
+      <!-- X 4 -->
+      <path d="M 54 0 L 66 15 M 66 0 L 54 15" />
+    </g>
+    <!-- Horizontal bar at bottom -->
+    <line x1="0" y1="18" x2="66" y2="18" stroke="#2D8B6F" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="110" y="58" 
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-weight="700" 
+        font-size="24" 
+        fill="#FFFFFF"
+        letter-spacing="1">
+    BALCONYLAB
+  </text>
+  
+  <!-- Tagline optional -->
+  <text x="110" y="75" 
+        font-family="'Inter', sans-serif" 
+        font-weight="400" 
+        font-size="10" 
+        fill="#666666"
+        letter-spacing="2">
+    PROJECT TRACKING
+  </text>
+</svg>
