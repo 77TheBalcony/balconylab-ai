@@ -22,6 +22,7 @@ export default function LoginForm() {
       { email: 'arnaud@bynd.com', password: 'bynd2026' },
       { email: 'orlando@bynd.com', password: 'bynd2026' },
       { email: 'admin@balconylab.ai', password: 'admin123' },
+      { email: 'bynd@balconylab.ai', password: 'cracks2026' },
     ]
 
     // Simulate API call

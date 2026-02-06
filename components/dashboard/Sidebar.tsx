@@ -27,7 +27,7 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
         </svg>
       ),
       label: 'PROYECTO',
-      subsections: ['documentos', 'maquetas', 'referencias']
+      subsections: ['documentos', 'maquetas', 'ruta-critica']
     },
     dashboard: {
       icon: (

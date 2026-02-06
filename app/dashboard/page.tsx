@@ -246,22 +246,36 @@ export default function DashboardPage() {
         return (
           <div>
             <h1 className="font-display text-4xl font-bold mb-2">Maquetas Audiovisuales</h1>
-            <p className="text-text-tertiary mb-8">5 videos demostrativos</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p className="text-text-tertiary mb-8">Videos demostrativos de cada bloque de contenido</p>
+            <div className="grid md:grid-cols-2 gap-8">
               {[
-                { title: 'Premium', duration: '30 seg', type: 'Cinematográfico' },
-                { title: 'Educacional', duration: '20 seg', type: 'TikTok Style' },
-                { title: 'Podcast', duration: '20 seg', type: 'Conversacional' },
-                { title: 'Arqui', duration: '15 seg', type: 'AI Mascot' },
-                { title: 'BYND LAB', duration: '20 seg', type: 'Live Preview' },
+                { title: 'Premium', duration: '30 seg', type: 'Cinematográfico', vimeoId: '1162419291', hash: 'ad73a58485' },
+                { title: 'Educacional', duration: '20 seg', type: 'TikTok Style', vimeoId: '1162422070', hash: '9cae881386' },
+                { title: 'Educacional 2', duration: '20 seg', type: 'TikTok Style', vimeoId: '1162423738', hash: '' },
+                { title: 'Educacional 3', duration: '15 seg', type: 'TikTok Style', vimeoId: '1162424985', hash: '' },
+                { title: 'BYND LAB', duration: '20 seg', type: 'Live Preview', vimeoId: '', hash: '' },
               ].map((video, i) => (
-                <div key={i} className="card card-neural group">
-                  <div className="aspect-video bg-gradient-to-br from-bg-elevated to-bg-dark rounded-xl mb-4 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-green-primary/20 flex items-center justify-center glow-green group-hover:scale-110 transition-transform">
-                      <svg className="w-8 h-8 text-green-glow" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
+                <div key={i} className="card card-neural">
+                  <div className="aspect-video bg-bg-elevated rounded-xl mb-4 overflow-hidden">
+                    {video.vimeoId ? (
+                      <iframe
+                        src={`https://player.vimeo.com/video/${video.vimeoId}${video.hash ? `?h=${video.hash}&` : '?'}badge=0&autopause=0&player_id=0&app_id=58479`}
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        className="w-full h-full"
+                        title={video.title}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center text-center p-6">
+                        <svg className="w-12 h-12 text-text-tertiary mb-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <p className="text-sm text-text-tertiary">
+                          Agrega el ID de Vimeo en el código<br/>
+                          <code className="text-xs text-green-glow mt-2 inline-block">vimeoId: 'TU_ID_AQUI'</code>
+                        </p>
+                      </div>
+                    )}
                   </div>
                   <h3 className="font-display text-lg font-bold mb-1">{video.title}</h3>
                   <div className="flex gap-3 text-sm text-text-tertiary">
@@ -275,28 +289,43 @@ export default function DashboardPage() {
           </div>
         )
       
-      case 'proyecto-referencias':
+      case 'proyecto-ruta-critica':
         return (
           <div>
-            <h1 className="font-display text-4xl font-bold mb-2">Referencias Visuales</h1>
-            <p className="text-text-tertiary mb-8">Inspiración y moodboard</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: 'Anthropic UI', category: 'Interface Design' },
-                { title: 'Palantir Dashboard', category: 'Data Viz' },
-                { title: 'Dolsten.com', category: 'Landing Page' },
-                { title: 'Lando Norris', category: 'Personality' },
-                { title: 'Neural Networks', category: 'Animation' },
-                { title: 'Glassmorphism', category: 'UI Elements' },
-              ].map((ref, i) => (
-                <div key={i} className="card card-neural group cursor-pointer">
-                  <div className="aspect-video bg-gradient-to-br from-bg-elevated to-bg-dark rounded-xl mb-4" />
-                  <div className="text-xs text-green-glow font-semibold uppercase mb-2">
-                    {ref.category}
+            <h1 className="font-display text-4xl font-bold mb-2">Ruta Crítica</h1>
+            <p className="text-text-tertiary mb-8">Timeline y milestones del proyecto</p>
+            
+            <div className="glass-medium p-8 rounded-3xl">
+              <div className="mb-6">
+                <h3 className="font-display text-xl font-bold mb-2">Google Sheets - Editable en tiempo real</h3>
+                <p className="text-text-tertiary text-sm mb-4">
+                  Este documento se sincroniza automáticamente desde Google Sheets. Los cambios se reflejan en tiempo real.
+                </p>
+              </div>
+              
+              {/* Google Sheets Embed */}
+              <div className="w-full h-[800px] rounded-xl overflow-hidden border border-border-subtle">
+                <iframe
+                  src="https://docs.google.com/spreadsheets/d/17LaLjcpamKNZSH3qHfYbVvnqkS6yYDLp/edit?usp=sharing&rm=minimal"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  title="Ruta Crítica BYND"
+                />
+              </div>
+              
+              <div className="mt-6 p-4 bg-green-primary/10 border border-green-primary/20 rounded-xl">
+                <div className="flex gap-3">
+                  <svg className="w-5 h-5 text-green-glow flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <div className="text-sm">
+                    <p className="font-semibold text-text-primary mb-1">✅ Google Sheets conectado</p>
+                    <p className="text-text-tertiary">
+                      Este documento se actualiza automáticamente. Cualquier cambio que hagas en Google Sheets se reflejará aquí al recargar la página.
+                    </p>
                   </div>
-                  <h3 className="font-display text-lg font-bold">{ref.title}</h3>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         )
